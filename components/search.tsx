@@ -1,10 +1,9 @@
 import { redirect } from 'next/navigation'
 
-async function action(data: FormData) {
+async function search(data: FormData) {
   'use server'
   const searchTerm = data.get('searchField') ?? ''
 
-  console.log('running', searchTerm)
   if (searchTerm?.length > 0) {
     redirect(`/?search=${searchTerm}`)
   }
@@ -14,11 +13,9 @@ export const Search = ({ term }: { term?: string }) => {
   return (
     <form
       method="post"
-      action=""
+      action={search}
       className=" grid grid-cols-[1fr,auto] h-[2em] pl-4 border border-neutral-600 rounded-2xl  focus-within:transform focus-within:scale-110 origin-left transition-all focus-within:border-pink-500 overflow-hidden"
     >
-      {/* @ts-expect-error Server Action */}
-      <input type="text" name="$$id" value={action.$$id} hidden readOnly />
       <input
         type="search"
         name="searchField"
