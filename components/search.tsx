@@ -1,15 +1,12 @@
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation'
 
 async function action(data: FormData) {
-  "use server";
-  console.log("running search action");
+  'use server'
+  const searchTerm = data.get('searchField') ?? ''
 
-  const searchTerm = data.get("searchField") ?? "";
-
-  console.log("running search action", searchTerm);
-
+  console.log('running', searchTerm)
   if (searchTerm?.length > 0) {
-    redirect(`/?search=${searchTerm}`);
+    redirect(`/?search=${searchTerm}`)
   }
 }
 
@@ -18,19 +15,22 @@ export const Search = ({ term }: { term?: string }) => {
     <form
       method="post"
       action=""
-      className=" grid grid-cols-[1fr,auto] h-[2em] w-[50ch] pl-4 border-2 border-neutral-600 rounded-2xl  focus-within:transform focus-within:scale-110 origin-left transition-all focus-within:border-pink-500 overflow-hidden"
+      className=" grid grid-cols-[1fr,auto] h-[2em] pl-4 border border-neutral-600 rounded-2xl  focus-within:transform focus-within:scale-110 origin-left transition-all focus-within:border-pink-500 overflow-hidden"
     >
-      {/* @ts-expect-error `$$id` missing */}
+      {/* @ts-expect-error Server Action */}
       <input type="text" name="$$id" value={action.$$id} hidden readOnly />
       <input
         type="search"
         name="searchField"
-        defaultValue={typeof term === "string" ? decodeURI(term) : ""}
+        defaultValue={typeof term === 'string' ? decodeURI(term) : ''}
         autoComplete="off"
         className="bg-transparent text-white outline-none"
         required
       />
-      <button type="submit" className="bg-pink-400 text-black text-lg px-2">
+      <button
+        type="submit"
+        className="bg-pink-500 hover:bg-pink-400 focus:bg-pink-300 transition-colors text-black text-lg px-2 rounded-[0_6rem_6rem_0]"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -47,5 +47,5 @@ export const Search = ({ term }: { term?: string }) => {
         </svg>
       </button>
     </form>
-  );
-};
+  )
+}

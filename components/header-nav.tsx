@@ -10,11 +10,13 @@ export const HeaderNav: FC<{ searchTerm?: string; totalTitles?: string }> = ({
     <h1 className="self-center">
       <Xmdb />
     </h1>
-    <Search term={searchTerm} />
-    {totalTitles ? (
-      <strong className="col-span-2 text-center">
-        Search on: {totalTitles} titles
-      </strong>
-    ) : null}
+    <div className="relative">
+      {totalTitles ? (
+        <strong className="text-center absolute -top-8 w-full">
+          Search on: {totalTitles} titles
+        </strong>
+      ) : null}
+      <Search term={searchTerm} />
+    </div>
   </header>
 )
