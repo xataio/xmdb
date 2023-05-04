@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Titles } from '~/lib/xata.codegen.server'
+import { Titles } from '~/lib/xata.codegen'
 import { Rating } from './ratings'
 
 const MovieCard = ({ data }: { data: Titles }) => {
