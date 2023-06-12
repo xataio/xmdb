@@ -1,7 +1,5 @@
 <h1> XMDB <img alt="Xatafly, the logo from Xata" src="/public/flap.gif" width="50" /></h1>
 
-> ⚠️ this app uses some Next.js **undocumented** experimental features!
-
 ## Features ⚡️
 
 - [Typo-Tolerant Full-Text Search](https://xata.io/docs/api-guide/search).
@@ -9,6 +7,8 @@
 - [Type-Safe SDK/ORM](https://github.com/xataio/client-ts/blob/main/packages/client/README.md) (schema-based types generation).
 - Next.js App Directory with React Server Components.
 - Next.js Server Actions.
+- Intercepting Route
+- Parallel Route
 
 ## Environment Setup 🧱
 

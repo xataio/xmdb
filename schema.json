@@ -1,39 +1,6 @@
 {
   "tables": [
     {
-      "name": "names",
-      "columns": [
-        {
-          "name": "primaryName",
-          "type": "string"
-        },
-        {
-          "name": "birthYear",
-          "type": "int"
-        },
-        {
-          "name": "deathYear",
-          "type": "int"
-        },
-        {
-          "name": "primaryProfession",
-          "type": "multiple"
-        },
-        {
-          "name": "knownForTitles",
-          "type": "multiple"
-        },
-        {
-          "name": "pictureUrl",
-          "type": "string"
-        },
-        {
-          "name": "biography",
-          "type": "text"
-        }
-      ]
-    },
-    {
       "name": "titles",
       "columns": [
         {
@@ -83,46 +50,6 @@
         {
           "name": "summary",
           "type": "text"
-        }
-      ]
-    },
-    {
-      "name": "titleEpisodes",
-      "columns": [
-        {
-          "name": "show",
-          "type": "link",
-          "link": {
-            "table": "titles"
-          }
-        },
-        {
-          "name": "seasonNumber",
-          "type": "int"
-        },
-        {
-          "name": "episodeNumber",
-          "type": "int"
-        },
-        {
-          "name": "episode",
-          "type": "link",
-          "link": {
-            "table": "titles"
-          }
-        }
-      ]
-    },
-    {
-      "name": "likes",
-      "columns": [
-        {
-          "name": "idClerk",
-          "type": "string"
-        },
-        {
-          "name": "titles",
-          "type": "multiple"
         }
       ]
     }

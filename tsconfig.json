@@ -29,7 +29,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "seed.mjs"
+    "seed.mjs",
+    "app/@modal/.default.tsx"
   ],
   "exclude": ["node_modules"]
 }

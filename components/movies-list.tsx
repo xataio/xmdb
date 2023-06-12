@@ -11,7 +11,7 @@ const MovieCard = ({ data }: { data: Titles }) => {
         <h2 className="lg:text-3xl text-5xl mb-2 col-span-2">
           <Link
             className="hover:text-pink-500 focus:text-pink-500"
-            href={`/movie/${id}/`}
+            href={`/movie/${id}`}
           >
             {primaryTitle}
           </Link>

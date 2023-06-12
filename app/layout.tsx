@@ -32,7 +32,9 @@ export const metadata: Metadata = {
   },
 }
 
-function RootLayout({ children }: { children: ReactNode }) {
+type RootLayoutProps = Record<'children' | 'modal', ReactNode>
+
+function RootLayout({ children, modal }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className="grid grid-rows-[auto,1fr,auto] min-h-screen">
@@ -63,6 +65,7 @@ function RootLayout({ children }: { children: ReactNode }) {
           </ul>
         </aside>
         {children}
+        {modal}
         <footer className="flex justify-center items-center gap-2 py-12">
           <span>Powered by</span>
 
