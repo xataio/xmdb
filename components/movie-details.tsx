@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import { getMovie } from '~/lib/db.server'
 import { Rating } from './ratings'
+import { RiCloseLine } from 'react-icons/ri'
 
 export async function MovieDetails({ id }: { id: string }) {
   const movie = await getMovie(id)
@@ -19,9 +20,9 @@ export async function MovieDetails({ id }: { id: string }) {
   } = movie
 
   return (
-    <div className="grid max-w-4xl rounded-lg bg-slate-900">
+    <div className="relative grid max-w-4xl rounded-lg bg-slate-900">
       <article className="grid max-w-5xl gap-8 p-8 mx-auto lg:grid lg:grid-cols-2">
-        <section className="grid place-items-center">
+        <section className="grid pt-4 place-items-center">
           {coverUrl?.startsWith('http') && !coverUrl?.endsWith('null') && (
             <picture>
               <source srcSet={coverUrl} type="image/webp" />
@@ -33,8 +34,8 @@ export async function MovieDetails({ id }: { id: string }) {
             </picture>
           )}
         </section>
-        <section className="leading-8 ">
-          <h1 className="mb-4 text-3xl text-white">{primaryTitle}</h1>
+        <section>
+          <h1 className="pt-4 mb-4 text-3xl text-white ">{primaryTitle}</h1>
 
           {genres && genres.length > 0 && (
             <ul className="flex gap-2 mb-4">
@@ -63,6 +64,8 @@ export async function MovieDetails({ id }: { id: string }) {
           <p className="text-gray-400">Duration: {runtimeMinutes} minutes.</p>
         </section>
       </article>
+
+      <RiCloseLine className="absolute text-2xl text-white cursor-pointer top-4 left-4" />
     </div>
   )
 }
