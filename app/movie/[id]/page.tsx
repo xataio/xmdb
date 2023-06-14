@@ -1,4 +1,4 @@
-import { HeaderNav } from '~/components/header-nav'
+import { Hero } from '~/components/hero'
 import { fetchDefaultTitles, getMovie } from '~/lib/db.server'
 import { Metadata } from 'next'
 import { MovieDetails } from '~/components/movie-details'
@@ -37,7 +37,7 @@ export async function generateMetadata({
 export default async function Movie({ params }: { params: { id: string } }) {
   return (
     <main>
-      <HeaderNav searchTerm={''} />
+      <Hero searchTerm={''} />
       {/** @ts-expect-error Async Server Component */}
       <MovieDetails id={params.id} />
     </main>

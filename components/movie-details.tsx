@@ -19,11 +19,11 @@ export async function MovieDetails({ id }: { id: string }) {
   } = movie
 
   return (
-    <div className=" place-items-center grid bg-black">
+    <div className="grid place-items-center bg-slate-900">
       <header className="mb-10">
-        <h1 className="text-6xl">{primaryTitle}</h1>
+        <h1 className="text-6xl text-white">{primaryTitle}</h1>
         {startYear && (
-          <time className="text-right block" dateTime={String(startYear)}>
+          <time className="block text-right" dateTime={String(startYear)}>
             ({startYear})
           </time>
         )}
@@ -34,7 +34,7 @@ export async function MovieDetails({ id }: { id: string }) {
           </>
         ) : null}
       </header>
-      <article className="grid lg:grid lg:grid-cols-2 max-w-5xl mx-auto gap-5 p-5 ">
+      <article className="grid max-w-5xl gap-5 p-5 mx-auto lg:grid lg:grid-cols-2 ">
         <section className="grid place-items-center">
           {coverUrl?.startsWith('http') && !coverUrl?.endsWith('null') && (
             <picture>
@@ -51,16 +51,13 @@ export async function MovieDetails({ id }: { id: string }) {
           {genres && genres.length > 0 && (
             <ul className="flex gap-2 mb-8">
               {genres?.map((genre) => (
-                <li
-                  key={id + genre}
-                  className="border-2 border-neutral-800 rounded-lg py-1 px-2"
-                >
+                <li key={id + genre} className="px-2 py-1 border-2 rounded-lg ">
                   {genre}
                 </li>
               ))}
             </ul>
           )}
-          <p className="max-w-prose mx-auto">{summary}</p>
+          <p className="mx-auto max-w-prose">{summary}</p>
           <p className="text-right text-neutral-400">
             Duration: {runtimeMinutes} minutes.
           </p>

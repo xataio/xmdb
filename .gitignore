@@ -41,3 +41,4 @@ next-env.d.ts
 
 ## workaround for turbopack
 dist.css
+.env

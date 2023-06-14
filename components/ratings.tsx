@@ -9,17 +9,17 @@ export const Rating = ({ value }: { value: number }) => {
       className="flex justify-start cursor-default"
       title={String(value)}
     >
-      <li className="text-sm self-baseline pr-2 inline-block">
+      <li className="inline-block pr-2 text-sm self-baseline">
         {arr.map((_, idx) => (
-          <div key={value + idx} className="overflow-x-hidden inline-block">
-            <span className="rating-star inline-block" role="image" aria-hidden>
+          <div key={value + idx} className="inline-block overflow-x-hidden">
+            <span className="inline-block rating-star" role="image" aria-hidden>
               ⭐️
             </span>
           </div>
         ))}
         {decimalPoints < 0.4 ? null : (
           <div
-            className="overflow-x-hidden inline-block"
+            className="inline-block overflow-x-hidden"
             style={{
               width: decimalPoints + 'em',
             }}

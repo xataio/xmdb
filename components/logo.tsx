@@ -1,11 +1,15 @@
 import Link from 'next/link'
+import { RiMovie2Line } from 'react-icons/ri'
+
 export function Xmdb() {
   return (
     <Link
       href="/"
-      className="inline-block py-1 px-2 rounded-md bg-pink-500 hover:ring-offset-4 hover:ring-2 hover:ring-offset-black hover:ring-pink-500 border-black text-center text-black font-bold"
+      className="inline-flex items-center justify-center h-10 gap-1 px-2 text-white bg-pink-600 rounded-lg"
     >
-      XMDB
+      <span className="sr-only">Logo</span>
+      <RiMovie2Line className="text-2xl" />
+      <span>XMDB</span>
     </Link>
   )
 }

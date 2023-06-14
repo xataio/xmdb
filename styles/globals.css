@@ -3,11 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    color: theme(colors.white);
-    background: theme(colors.black);
-  }
-
   .grid-order-1 {
     grid-column: 1;
   }
@@ -24,7 +19,7 @@
 
 @layer components {
   .rating-star {
-    text-shadow: 0 0 theme(colors.pink.200);
+    text-shadow: 0 0 theme(colors.pink.500);
     @apply text-transparent;
   }
 }
