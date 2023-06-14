@@ -38,7 +38,7 @@ type RootLayoutProps = Record<'children' | 'modal', ReactNode>
 function RootLayout({ children, modal }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className="grid grid-rows-[auto,1fr,auto] min-h-screen bg-slate-950">
+      <body className="grid grid-rows-[auto,1fr,auto] min-h-screen bg-gradient-to-b from-slate-950 to-slate-900">
         <TopNav />
 
         <main className="container mx-auto">{children}</main>
