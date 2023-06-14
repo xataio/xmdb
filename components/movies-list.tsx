@@ -7,7 +7,7 @@ const MovieCard = ({ data }: { data: Titles }) => {
 
   return (
     <Link href={`/movie/${id}`}>
-      <div className="flex w-full max-w-sm mx-auto overflow-hidden transition duration-500 ease-in-out shadow-md shadow-lg bg-slate-950 rounded-xl hover:-translate-y-2 hover:shadow-2xl">
+      <div className="flex w-full h-full max-w-sm mx-auto overflow-hidden transition duration-500 ease-in-out shadow-md shadow-lg bg-slate-950 rounded-xl hover:-translate-y-2 hover:shadow-2xl">
         <div className="relative text-white transform movie-item movie-card">
           <div className="absolute inset-0 z-10 transition duration-300 ease-in-out bg-gradient-to-t from-black via-slate-900 to-transparent"></div>
           <div
