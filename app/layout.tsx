@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import { type ReactNode } from 'react'
 import '~/styles/globals.css'
-import xatafly from '~/public/xatafly.svg'
 import xataflyWhite from '~/public/xatafly-white.svg'
-import { SiGithub as Github, SiDiscord as Discord } from 'react-icons/si'
 import { TopNav } from '~/components/top-nav'
 
 import { type Metadata } from 'next'
@@ -38,7 +36,7 @@ type RootLayoutProps = Record<'children' | 'modal', ReactNode>
 function RootLayout({ children, modal }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className="grid grid-rows-[auto,1fr,auto] min-h-screen bg-gradient-to-b from-slate-950 to-slate-900">
+      <body className="grid grid-rows-[auto,1fr,auto] min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 text-white">
         <TopNav />
 
         <main className="container mx-auto">{children}</main>
@@ -53,11 +51,7 @@ function RootLayout({ children, modal }: RootLayoutProps) {
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Image
-              src={xatafly}
-              alt="Xata Logo"
-              className="w-8 transition-transform hover:-translate-y-2 hover:rotate-12 hover:translate-x-2"
-            />
+            <Image src={xataflyWhite} alt="Xata Logo" className="w-6" />
           </a>
         </footer>
       </body>
