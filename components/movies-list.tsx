@@ -25,11 +25,11 @@ const MovieCard = ({ data }: { data: Titles }) => {
                     {primaryTitle}
                   </h3>
 
-                  <div className="inline-flex gap-1 mb-0 text-sm text-slate-400">
+                  <div className="inline-flex gap-1 mb-0 text-sm text-white">
                     {genres?.map((genre) => (
                       <span
                         key={id + genre}
-                        className="px-2 py-1 rounded-md bg-slate-900"
+                        className="px-2 py-1 text-xs border rounded-lg"
                       >
                         {genre}
                       </span>
