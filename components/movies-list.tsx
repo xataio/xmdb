@@ -75,7 +75,7 @@ const MovieCard = ({ data }: { data: Titles }) => {
 
 export const MoviesList = async ({ titles }: { titles: Titles[] }) => {
   return (
-    <ul className="container grid gap-8 px-4 mx-auto text-center xl:grid-cols-4 lg:grid-cols-3 lg:px-12">
+    <ul className="container grid gap-8 px-4 mx-auto xl:grid-cols-4 lg:grid-cols-3 lg:px-12">
       {titles.map((movie) => (
         <MovieCard key={movie.id} data={movie} />
       ))}
