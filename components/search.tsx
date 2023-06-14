@@ -12,7 +12,7 @@ async function search(data: FormData) {
 export const Search = ({ term }: { term?: string }) => {
   return (
     <form method="post" action={search}>
-      <div className="relative">
+      <div className="relative max-w-4xl mx-auto">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
           <svg
             aria-hidden="true"
@@ -37,13 +37,13 @@ export const Search = ({ term }: { term?: string }) => {
           defaultValue={typeof term === 'string' ? decodeURI(term) : ''}
           autoComplete="off"
           // className="text-white bg-transparent outline-none"
-          className="block w-full p-4 pl-10 text-sm text-white placeholder-gray-400 border rounded-lg border-slate-700 bg-slate-900 focus:border-pink-500"
+          className="block w-full p-4 pl-10 text-sm text-white placeholder-gray-400 border rounded-2xl border-slate-700 bg-slate-900 focus:border-pink-500"
           required
         />
         <button
           type="submit"
           // className="px-2 text-lg text-white transition-colors bg-pink-600 hover:bg-pink-400 focus:bg-pink-300 rounded-2x "
-          className="text-white absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-pink-600 hover:bg-pink-700 focus:ring-pink-800"
+          className="text-white absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-xl text-sm px-4 py-2 bg-pink-600 hover:bg-pink-700 focus:ring-pink-800"
         >
           Search
         </button>
