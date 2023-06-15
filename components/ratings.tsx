@@ -8,17 +8,17 @@ export const Rating = ({ value }: { value: number }) => {
   return (
     <ul
       aria-label={`Rating is ${value}`}
-      className="flex gap-1"
+      className="flex gap-1 text-sm text-pink-500"
       title={String(value)}
     >
       {arr.map((_, idx) => (
-        <li className="inline-flex text-sm text-pink-500 self-baseline">
+        <li>
           <FaStar key={idx} />
         </li>
       ))}
 
       {decimalPoints < 0.4 ? null : (
-        <li className="inline-flex text-sm text-pink-500 self-baseline">
+        <li>
           <FaStarHalf />{' '}
         </li>
       )}

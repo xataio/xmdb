@@ -50,18 +50,28 @@ export async function MovieDetails({ id }: { id: string }) {
             </ul>
           )}
 
-          <div>{averageRating ? <Rating value={averageRating} /> : null}</div>
+          <div className="flex justify-between">
+            <div>
+              {averageRating ? (
+                <span>
+                  <Rating value={averageRating} />{' '}
+                  <small>({numVotes?.toLocaleString('en-Us')} votes)</small>
+                </span>
+              ) : null}
+            </div>
 
-          <div>
-            {startYear && (
-              <time className="block " dateTime={String(startYear)}>
-                ({startYear})
-              </time>
-            )}
+            <div>
+              {startYear && (
+                <time className="block " dateTime={String(startYear)}>
+                  {startYear}
+                </time>
+              )}
+            </div>
           </div>
-
-          <p className="mx-auto max-w-prose">{summary}</p>
-          <p className="text-gray-400">Duration: {runtimeMinutes} minutes.</p>
+          <p className="pt-4 mx-auto max-w-prose">{summary}</p>
+          <p className="pt-4 text-gray-400">
+            Duration: {runtimeMinutes} minutes.
+          </p>
         </section>
       </article>
 
