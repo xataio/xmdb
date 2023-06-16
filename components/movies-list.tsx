@@ -56,7 +56,7 @@ const MovieCard = ({ data }: { data: Titles }) => {
             </div>
           </div>
 
-          {coverUrl?.startsWith('http') && !coverUrl?.endsWith('null') && (
+          {coverUrl?.startsWith('http') && !coverUrl?.endsWith('null') ? (
             <picture>
               <source srcSet={coverUrl} type="image/webp" />
               <img
@@ -64,6 +64,14 @@ const MovieCard = ({ data }: { data: Titles }) => {
                 alt={`Poster for "${primaryTitle}"`}
                 className="absolute inset-0 w-full transform -translate-y-4"
                 style={{ filter: 'grayscale(0.7)' }}
+              />
+            </picture>
+          ) : (
+            <picture>
+              <img
+                src="/placeholder.jpg"
+                alt="Placeholder image"
+                className="absolute inset-0 w-full transform -translate-y-4"
               />
             </picture>
           )}

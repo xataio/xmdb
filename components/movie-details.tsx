@@ -23,13 +23,21 @@ export async function MovieDetails({ id }: { id: string }) {
     <div className="relative grid max-w-4xl rounded-lg bg-slate-900">
       <article className="grid max-w-5xl gap-8 p-8 mx-auto lg:grid lg:grid-cols-2">
         <section className="grid pt-4 place-items-center">
-          {coverUrl?.startsWith('http') && !coverUrl?.endsWith('null') && (
+          {coverUrl?.startsWith('http') && !coverUrl?.endsWith('null') ? (
             <picture>
               <source srcSet={coverUrl} type="image/webp" />
               <img
                 src={coverUrl}
                 alt={`Poster for "${primaryTitle}"`}
                 className="rounded-lg "
+              />
+            </picture>
+          ) : (
+            <picture>
+              <img
+                src="/placeholder.jpg"
+                alt="Placeholder image"
+                className="absolute inset-0 w-full transform -translate-y-4"
               />
             </picture>
           )}
