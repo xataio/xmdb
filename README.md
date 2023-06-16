@@ -1,4 +1,10 @@
-<h1> XMDB <img alt="Xatafly, the logo from Xata" src="/public/flap.gif" width="50" /></h1>
+<p align="center">
+  <a href="https://github.com/xataio/xataform">
+    <img src="/public/hero.png" alt="Xata and XMDB logo" />
+  </a>
+</p>
+
+<h1 align="center">Your gateway to movie exploration</h1>
 
 ## Features ⚡️
 
