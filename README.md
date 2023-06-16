@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/xataio/xataform">
-    <img src="/public/hero.png" alt="Xata and XMDB logo" />
+    <img src="/public/hero.png" alt="Xata and XMDB logo" style="max-width: 700px" />
   </a>
 </p>
 
