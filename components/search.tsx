@@ -36,7 +36,6 @@ export const Search = ({ term }: { term?: string }) => {
           name="searchField"
           defaultValue={typeof term === 'string' ? decodeURI(term) : ''}
           autoComplete="off"
-          // className="text-white bg-transparent outline-none"
           className="block w-full p-4 pl-10 text-sm text-white placeholder-gray-400 border rounded-2xl border-slate-700 bg-slate-900 focus:border-pink-500"
           required
         />
