@@ -1,8 +1,8 @@
-import Image from 'next/image'
 import { type ReactNode } from 'react'
-import '~/styles/globals.css'
-import xataflyWhite from '~/public/xatafly-white.svg'
+import Image from 'next/image'
 import { TopNav } from '~/components/top-nav'
+import xataflyWhite from '~/public/xatafly-white.svg'
+import '~/styles/globals.css'
 
 import { type Metadata } from 'next'
 
@@ -40,9 +40,7 @@ function RootLayout({ children, modal }: RootLayoutProps) {
         <TopNav />
 
         <main className="container mx-auto">{children}</main>
-
         {modal}
-
         <footer className="flex items-center justify-center gap-2 py-12">
           <span>Powered by</span>
           <a

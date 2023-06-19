@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation'
 import { getMovie } from '~/lib/db.server'
 import { Rating } from './ratings'
-import { RiCloseLine } from 'react-icons/ri'
 
 export async function MovieDetails({ id }: { id: string }) {
   const movie = await getMovie(id)

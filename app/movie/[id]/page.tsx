@@ -38,7 +38,7 @@ export default async function Movie({ params }: { params: { id: string } }) {
   return (
     <main>
       <Hero searchTerm={''} />
-      {/** @ts-expect-error Async Server Component */}
+      {/** @ts-expect-error Server Component */}
       <MovieDetails id={params.id} />
     </main>
   )

@@ -1,4 +1,3 @@
-// @ts-check
 import { faker } from '@faker-js/faker'
 import { buildClient } from '@xata.io/client'
 import dotenv from 'dotenv'
@@ -39,9 +38,6 @@ class XataClient extends buildClient() {
   }
 }
 
-// TypeScript Compiler wouldn't support
-// top-level await, but we're writing JS
-// @ts-ignore
 const DATABASE_URL = await getDatabaseURL()
 
 const xata = new XataClient({
