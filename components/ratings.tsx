@@ -1,3 +1,5 @@
+import { FaStarHalf, FaStar } from 'react-icons/fa'
+
 export const Rating = ({ value }: { value: number }) => {
   const ratingValue = value / 2
   const decimalPoints = Number((ratingValue % 1).toFixed(1))
@@ -6,35 +8,20 @@ export const Rating = ({ value }: { value: number }) => {
   return (
     <ul
       aria-label={`Rating is ${value}`}
-      className="flex justify-start cursor-default"
+      className="flex gap-1 text-sm text-pink-500"
       title={String(value)}
     >
-      <li className="text-sm self-baseline pr-2 inline-block">
-        {arr.map((_, idx) => (
-          <div key={value + idx} className="overflow-x-hidden inline-block">
-            <span className="rating-star inline-block" role="image" aria-hidden>
-              ⭐️
-            </span>
-          </div>
-        ))}
-        {decimalPoints < 0.4 ? null : (
-          <div
-            className="overflow-x-hidden inline-block"
-            style={{
-              width: decimalPoints + 'em',
-            }}
-          >
-            <span
-              key={decimalPoints + value}
-              className="rating-star"
-              role="image"
-              aria-hidden
-            >
-              ⭐️
-            </span>
-          </div>
-        )}
-      </li>
+      {arr.map((_, idx) => (
+        <li>
+          <FaStar key={idx} />
+        </li>
+      ))}
+
+      {decimalPoints < 0.4 ? null : (
+        <li>
+          <FaStarHalf />{' '}
+        </li>
+      )}
     </ul>
   )
 }

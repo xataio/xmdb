@@ -40,12 +40,12 @@ export default function Modal({ children }: { children: React.ReactNode }) {
     <>
       <div
         ref={overlay}
-        className="fixed z-10 left-0 right-0 top-0 bottom-0 mx-auto h-screen overflow-hidden w-screen backdrop-blur-sm"
+        className="fixed top-0 bottom-0 left-0 right-0 z-10 w-screen h-screen mx-auto overflow-hidden backdrop-blur-sm"
         onClick={onClick}
       />
       <div
         ref={wrapper}
-        className="fixed z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:w-10/12 md:w-8/12 lg:w-1/2"
+        className="fixed z-20 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:w-10/12 md:w-8/12 lg:w-1/2"
       >
         {children}
       </div>

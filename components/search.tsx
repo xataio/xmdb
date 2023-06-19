@@ -11,38 +11,41 @@ async function search(data: FormData) {
 
 export const Search = ({ term }: { term?: string }) => {
   return (
-    <form
-      method="post"
-      action={search}
-      className=" grid grid-cols-[1fr,auto] h-[2em] pl-4 border border-neutral-600 rounded-2xl  focus-within:transform focus-within:scale-110 origin-left transition-all focus-within:border-pink-500 overflow-hidden"
-    >
-      <input
-        type="search"
-        name="searchField"
-        defaultValue={typeof term === 'string' ? decodeURI(term) : ''}
-        autoComplete="off"
-        className="bg-transparent text-white outline-none"
-        required
-      />
-      <button
-        type="submit"
-        className="bg-pink-500 hover:bg-pink-400 focus:bg-pink-300 transition-colors text-black text-lg px-2 rounded-[0_6rem_6rem_0]"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6"
+    <form method="post" action={search}>
+      <div className="relative max-w-4xl mx-auto">
+        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <svg
+            aria-hidden="true"
+            className="w-5 h-5 text-gray-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            ></path>
+          </svg>
+        </div>
+
+        <input
+          type="search"
+          name="searchField"
+          defaultValue={typeof term === 'string' ? decodeURI(term) : ''}
+          autoComplete="off"
+          className="block w-full p-4 pl-10 text-sm text-white placeholder-gray-400 border rounded-2xl border-slate-700 bg-slate-900 focus:border-pink-500"
+          required
+        />
+        <button
+          type="submit"
+          className="text-white absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-xl text-sm px-4 py-2 bg-pink-600 hover:bg-pink-700 focus:ring-pink-800"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-          />
-        </svg>
-      </button>
+          Search
+        </button>
+      </div>
     </form>
   )
 }

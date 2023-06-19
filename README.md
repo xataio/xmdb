@@ -1,4 +1,10 @@
-<h1> XMDB <img alt="Xatafly, the logo from Xata" src="/public/flap.gif" width="50" /></h1>
+<p align="center">
+  <a href="https://xmdb.vercel.app" target="_blank">
+    <img src="/public/hero.png" alt="Xata and XMDB logo" style="max-width: 700px" />
+  </a>
+</p>
+
+<h1 align="center">Your gateway to movie exploration</h1>
 
 ## Features ⚡️
 
