@@ -23,10 +23,7 @@ export const TopNav: FC = () => (
       </li>
 
       <li>
-        <a
-          href="https://github.com/xataio/examples/tree/main/apps/sample-imdb"
-          rel="noopener noreferrer"
-        >
+        <a href="https://github.com/xataio/xmdb/" rel="noopener noreferrer">
           <Github className="text-2xl transition-transform focus:scale-125 hover:scale-125" />
         </a>
       </li>
