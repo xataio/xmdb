@@ -53,11 +53,13 @@ export default function Modal({ children }: { children: React.ReactNode }) {
         ref={wrapper}
         className="fixed z-20 md:-translate-x-1/2 md:-translate-y-1/2 md:top-1/2 md:left-1/2 sm:w-full md:w-10/12 lg:w-1/2 max-h-screen overscroll-contain overflow-y-auto"
       >
-        {children}
-        <CloseIcon
-          className="absolute text-2xl text-white cursor-pointer top-4 right-4"
+        <button
           onClick={onDismiss}
-        />
+          className="absolute z-10 text-2xl text-white cursor-pointer top-4 right-4 focus:text-pink-400 focus:scale-110 focus:outline-0"
+        >
+          <CloseIcon />
+        </button>
+        {children}
       </div>
     </>
   )

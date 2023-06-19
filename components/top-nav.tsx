@@ -1,14 +1,10 @@
-import { type FC } from 'react'
 import Image from 'next/image'
 import xataflyWhite from '~/public/xatafly-white.svg'
 import { SiGithub as Github, SiDiscord as Discord } from 'react-icons/si'
 import { Xmdb } from './logo'
 
-export const TopNav: FC = () => (
-  <nav
-    aria-label="Global"
-    className="container flex items-center justify-between w-full px-4 py-4 mx-auto lg:px-12"
-  >
+export const TopNav = () => (
+  <nav className="container flex items-center justify-between w-full px-4 py-4 mx-auto lg:px-12">
     <Xmdb />
 
     <ul className="flex items-center gap-4 text-sm font-medium text-white">

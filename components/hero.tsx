@@ -1,5 +1,4 @@
 import { type FC } from 'react'
-import { Xmdb } from './logo'
 import { Search } from './search'
 
 export const Hero: FC<{ searchTerm?: string; totalTitles?: string }> = ({

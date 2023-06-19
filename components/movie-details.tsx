@@ -42,7 +42,7 @@ export async function MovieDetails({ id }: { id: string }) {
           )}
         </section>
         <section>
-          <h1 className="pt-4 mb-4 text-3xl text-white ">{primaryTitle}</h1>
+          <h1 className="pt-4 mb-4 text-3xl text-white">{primaryTitle}</h1>
 
           {genres && genres.length > 0 && (
             <ul className="flex gap-2 mb-4">
