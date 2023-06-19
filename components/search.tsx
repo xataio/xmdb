@@ -42,7 +42,6 @@ export const Search = ({ term }: { term?: string }) => {
         />
         <button
           type="submit"
-          // className="px-2 text-lg text-white transition-colors bg-pink-600 hover:bg-pink-400 focus:bg-pink-300 rounded-2x "
           className="text-white absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-xl text-sm px-4 py-2 bg-pink-600 hover:bg-pink-700 focus:ring-pink-800"
         >
           Search
