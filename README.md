@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/xataio/xataform">
+  <a href="https://xmdb.vercel.app" target="_blank">
     <img src="/public/hero.png" alt="Xata and XMDB logo" style="max-width: 700px" />
   </a>
 </p>
