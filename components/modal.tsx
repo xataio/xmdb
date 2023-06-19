@@ -5,6 +5,7 @@
  */
 import { useCallback, useRef, useEffect, MouseEvent } from 'react'
 import { useRouter } from 'next/navigation'
+import { RiCloseLine } from 'react-icons/ri'
 
 export default function Modal({ children }: { children: React.ReactNode }) {
   const overlay = useRef(null)
@@ -48,6 +49,10 @@ export default function Modal({ children }: { children: React.ReactNode }) {
         className="fixed z-20 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:w-10/12 md:w-8/12 lg:w-1/2"
       >
         {children}
+        <RiCloseLine
+          className="absolute text-2xl text-white cursor-pointer top-4 right-4"
+          onClick={onDismiss}
+        />
       </div>
     </>
   )

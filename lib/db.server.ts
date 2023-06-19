@@ -143,43 +143,9 @@ export const searchMovies = async (term: string) => {
     ],
   })
 
-  const records = await Promise.all(
-    results.map(async (record) => {
-      if (!record.coverUrl || !record.summary) {
-        const omdbResponse = await fetch(
-          `http://omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${record.id}`
-        )
-
-        if (!omdbResponse.ok) {
-          return record
-        }
-
-        const omdbData = OMDBschema.parse(await omdbResponse.json())
-
-        if (
-          typeof omdbData.Poster === 'string' &&
-          typeof omdbData.Plot === 'string'
-        ) {
-          record.update({
-            coverUrl: omdbData.Poster,
-            summary: omdbData.Plot,
-          })
-
-          return {
-            ...record,
-            coverUrl: omdbData.Poster,
-            summary: omdbData.Plot,
-          }
-        }
-      }
-
-      return record
-    })
-  )
-
   return {
     titles: movieList.parse(
-      records.filter(({ summary }) => summary && summary !== 'N/A')
+      results.filter(({ summary }) => summary && summary !== 'N/A')
     ),
   }
 }

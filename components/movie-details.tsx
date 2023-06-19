@@ -82,8 +82,6 @@ export async function MovieDetails({ id }: { id: string }) {
           </p>
         </section>
       </article>
-
-      <RiCloseLine className="absolute text-2xl text-white cursor-pointer top-4 right-4" />
     </div>
   )
 }
