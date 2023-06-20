@@ -19,7 +19,7 @@ export async function MovieDetails({ id }: { id: string }) {
   } = movie
 
   return (
-    <div className="relative grid max-w-4xl rounded-lg bg-slate-900">
+    <div className="relative grid">
       <article className="grid max-w-5xl gap-8 p-8 mx-auto lg:grid lg:grid-cols-2">
         <section className="grid pt-4 place-items-center">
           {coverUrl?.startsWith('http') && !coverUrl?.endsWith('null') ? (

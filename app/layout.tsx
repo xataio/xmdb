@@ -6,7 +6,7 @@ import '~/lib/globals.css'
 
 import { type Metadata } from 'next'
 
-const image = `${process.env.VERCEL_URL}/xmdb-og.png` as const
+const image = `/xmdb-og.png` as const
 const title = 'XMDB: Xata Movie Database'
 const description =
   'Xata Movie Database (XMDB) was built with Xata using Next.js and TypeScript to showcase Xata can be used by large databases (over 9 million records).'

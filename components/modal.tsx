@@ -51,7 +51,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
       />
       <div
         ref={wrapper}
-        className="fixed z-20 md:-translate-x-1/2 md:-translate-y-1/2 md:top-1/2 md:left-1/2 sm:w-full md:w-10/12 lg:w-1/2 max-h-screen overscroll-contain overflow-y-auto"
+        className="fixed max-w-4xl rounded-lg bg-slate-900 z-20 md:-translate-x-1/2 md:-translate-y-1/2 md:top-1/2 md:left-1/2 sm:w-full md:w-10/12 lg:w-1/2 max-h-screen overscroll-contain overflow-y-auto"
       >
         <button
           onClick={onDismiss}
