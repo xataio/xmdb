@@ -1,8 +1,6 @@
-<h1 align="center">
-  <a href="https://xmdb.vercel.app" target="_blank">
-    <img src="/public/xmdb-hero@2x.png" alt="Xata and XMDB logo" />
-  </a>
-</h1>
+å<a href="https://xmdb.vercel.app" target="_blank">
+  <img src="/public/xmdb-hero@2x.png" alt="Xata and XMDB logo" />
+</a>
 
 ## Features ⚡️
 
@@ -64,4 +62,4 @@ By default, server will run on [localhost:3000](http://localhost:3000).
 
 ---
 
-<img alt="Xata's logo" src="https://raw.githubusercontent.com/xataio/vscode-extension/2e3d0b877cf6aff1e0fc717e05ada714465ca783/doc/xata-icon-128.png" width="24" />
+<img alt="Xata's logo" src="/public/xata-logo-primary@2x.png" width="32" />
