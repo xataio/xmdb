@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://xmdb.vercel.app" target="_blank">
-    <img src="/public/hero.png" alt="Xata and XMDB logo" style="max-width: 700px" />
+    <img src="/public/xmdb-hero.png" alt="Xata and XMDB logo" />
   </a>
 </h1>
 
