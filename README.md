@@ -62,4 +62,6 @@ By default, server will run on [localhost:3000](http://localhost:3000).
 
 ---
 
-<img alt="Xata's logo" src="/public/xata-logo-primary@2x.png" width="32" />
+<a href="https://xata.io/" target="_blank">
+  <img alt="Xata's logo" src="/public/xata-logo-primary@2x.png" width="32" />
+</a>
