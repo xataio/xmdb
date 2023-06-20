@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import Loader from './loader'
 import { getTotalTitles } from '~/lib/db.server'
-import { SearchResult } from './search-result'
+import { SearchResult } from '../components/search-result'
 import { Hero } from '~/components/hero'
 
 const Home = async ({

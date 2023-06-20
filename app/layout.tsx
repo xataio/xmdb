@@ -2,7 +2,7 @@ import { type ReactNode } from 'react'
 import Image from 'next/image'
 import { TopNav } from '~/components/top-nav'
 import xataflyWhite from '~/public/xatafly-white.svg'
-import '~/styles/globals.css'
+import '~/lib/globals.css'
 
 import { type Metadata } from 'next'
 

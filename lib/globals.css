@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .rating-star {
+    text-shadow: 0 0 theme(colors.pink.500);
+    @apply text-transparent;
+  }
+}

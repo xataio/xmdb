@@ -61,7 +61,7 @@ export async function MovieDetails({ id }: { id: string }) {
             <div>
               {averageRating ? (
                 <span>
-                  <Rating value={averageRating} />{' '}
+                  <Rating value={averageRating} title={id} />{' '}
                   <small>({numVotes?.toLocaleString('en-Us')} votes)</small>
                 </span>
               ) : null}

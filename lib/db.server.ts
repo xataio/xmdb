@@ -2,6 +2,7 @@ import 'server-only'
 import { getXataClient, TitlesRecord } from '~/lib/xata.codegen'
 import { gte, le } from '@xata.io/client'
 import { movie, movieList, OMDBschema } from './schemas'
+import { revalidatePath } from 'next/cache'
 
 const xata = getXataClient()
 
@@ -78,6 +79,7 @@ export const fetchDefaultTitles = async () => {
     })
     .filter({
       startYear: le(new Date().getFullYear()),
+      averageRating: gte(7), // only movies with high average rating
       numVotes: gte(200000), // only movies with a bunch of votes
     })
     .sort('startYear', 'desc')
@@ -152,4 +154,31 @@ export const searchMovies = async (term: string) => {
 
 export const getMovies = async (term: string) => {
   return term.length > 0 ? await searchMovies(term) : await fetchDefaultTitles()
+}
+
+export const voteRating = async (vote: number, title: string) => {
+  // UI is base 5, rating DB is base 10
+  const voteRating = vote * 2
+  const { averageRating, numVotes } = movie.parse(
+    await xata.db.titles.filter('id', title).getFirst()
+  )
+
+  if (typeof averageRating !== 'number' || typeof numVotes !== 'number') {
+    await xata.db.titles.update({
+      id: title,
+      averageRating: voteRating,
+      numVotes: 1,
+    })
+  } else {
+    const currentSum = averageRating * numVotes
+    const totalVotes = numVotes + 1
+    const newRate = (currentSum + voteRating) / totalVotes
+    await xata.db.titles.update({
+      id: title,
+      averageRating: newRate,
+      numVotes: totalVotes,
+    })
+  }
+
+  return
 }

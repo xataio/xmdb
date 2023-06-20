@@ -1,10 +1,8 @@
-import { type FC } from 'react'
 import { Search } from './search'
 
-export const Hero: FC<{ searchTerm?: string; totalTitles?: string }> = ({
-  searchTerm,
-  totalTitles,
-}) => (
+type HeroProps = { searchTerm?: string; totalTitles?: string }
+
+export const Hero = ({ searchTerm, totalTitles }: HeroProps) => (
   <div className="container px-4 py-8 mx-auto text-center lg:py-16 lg:px-12 ">
     <h1 className="p-4 text-3xl font-bold text-center text-transparent md:text-5xl lg:text-6xl from-pink-100 via-slate-100 to-pink-100 bg-gradient-to-r bg-clip-text">
       Your gateway to movie exploration
