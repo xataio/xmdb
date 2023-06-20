@@ -1,4 +1,4 @@
-å<a href="https://xmdb.vercel.app" target="_blank">
+<a href="https://xmdb.vercel.app" target="_blank">
   <img src="/public/xmdb-hero@2x.png" alt="Xata and XMDB logo" />
 </a>
 
