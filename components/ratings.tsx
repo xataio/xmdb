@@ -1,5 +1,9 @@
+'use client'
+
+import { useEffect, useState, useTransition } from 'react'
 import { FaStarHalf, FaStar } from 'react-icons/fa'
 import { rate } from '~/lib/rating-action'
+import { Tooltip } from './tooltip'
 
 function getRemainingValue(evaluation: number, dec: number = 0) {
   if (evaluation >= 5) return 0
@@ -35,17 +39,48 @@ export const Rating = ({ value, title }: { value: number; title: string }) => {
     getRemainingValue(evaluation.length, decimalPoints)
   ).fill(undefined)
 
+  const [isPending, startTransition] = useTransition()
+  const [isVoting, toggleIsVoting] = useState(false)
+  const [votedRate, setVotedRate] = useState<number>()
+
+  useEffect(() => {
+    if (isPending) {
+      toggleIsVoting(true)
+    }
+
+    setTimeout(() => {
+      toggleIsVoting(false)
+    }, 4000)
+  }, [isPending])
+
   return (
-    <form action={rate}>
+    <form
+      className="relative"
+      action={(data) =>
+        startTransition(() => {
+          const userRate = Number(data.get('vote') ?? 0)
+          setVotedRate(userRate)
+          rate(data)
+        })
+      }
+    >
+      {isVoting && votedRate && <Tooltip votedRate={votedRate} />}
       <input type="hidden" name="title" value={title} />
       <ul
         aria-label={`Rating is ${ratingValue}`}
-        className="flex gap-1 text-sm text-pink-500"
+        className={`flex gap-1 text-sm text-pink-500 ${
+          isVoting ? 'animate-pulse' : ''
+        }`}
         title={String(ratingValue)}
       >
         {evaluation.map((_, idx) => (
-          <li key={idx + 'rating'}>
-            <button type="submit" name="vote" value={idx + 1}>
+          <li key={idx + 'rating'} className="cursor-pointer">
+            <button
+              type="submit"
+              name="vote"
+              value={idx + 1}
+              disabled={isVoting}
+            >
               <FaStar />
             </button>
           </li>
@@ -53,7 +88,12 @@ export const Rating = ({ value, title }: { value: number; title: string }) => {
 
         {shouldShowDecimal ? (
           <li key="decimal-rating">
-            <button type="submit" name="vote" value={evaluation.length + 1}>
+            <button
+              type="submit"
+              name="vote"
+              value={evaluation.length + 1}
+              disabled={isVoting}
+            >
               <FaStarHalf />{' '}
             </button>
           </li>
@@ -70,6 +110,7 @@ export const Rating = ({ value, title }: { value: number; title: string }) => {
                     shouldShowDecimal,
                     idx
                   )}
+                  disabled={isVoting}
                 >
                   <FaStar
                     className="text-transparent hover:text-pink-200"
