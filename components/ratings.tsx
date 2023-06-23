@@ -3,6 +3,8 @@
 import { useEffect, useState, useTransition } from 'react'
 import { FaStarHalf, FaStar } from 'react-icons/fa'
 import { rate } from '~/lib/rating-action'
+import { motion } from 'framer-motion'
+import { RatingFeedbackEmoji } from './rating-feedback-emoji'
 import { Tooltip } from './tooltip'
 
 function getRemainingValue(evaluation: number, dec: number = 0) {
@@ -53,6 +55,9 @@ export const Rating = ({ value, title }: { value: number; title: string }) => {
     }, 4000)
   }, [isPending])
 
+  const hoverStarColor = isVoting ? '' : 'hover:text-pink-500'
+  const starColor = isVoting ? 'text-slate-600' : 'text-pink-500'
+
   return (
     <form
       className="relative"
@@ -64,65 +69,98 @@ export const Rating = ({ value, title }: { value: number; title: string }) => {
         })
       }
     >
-      {isVoting && votedRate && <Tooltip votedRate={votedRate} />}
       <input type="hidden" name="title" value={title} />
-      <ul
-        aria-label={`Rating is ${ratingValue}`}
-        className={`flex gap-1 text-sm text-pink-500 ${
-          isVoting ? 'animate-pulse' : ''
-        }`}
-        title={String(ratingValue)}
-      >
-        {evaluation.map((_, idx) => (
-          <li key={idx + 'rating'} className="cursor-pointer">
-            <button
-              type="submit"
-              name="vote"
-              value={idx + 1}
-              disabled={isVoting}
-            >
-              <FaStar />
-            </button>
-          </li>
-        ))}
 
-        {shouldShowDecimal ? (
-          <li key="decimal-rating">
-            <button
-              type="submit"
-              name="vote"
-              value={evaluation.length + 1}
-              disabled={isVoting}
-            >
-              <FaStarHalf />{' '}
-            </button>
-          </li>
-        ) : null}
-        {Array.isArray(remaining) &&
-          remaining.map((_, idx) => {
-            return (
-              <li key={idx + 'remaining'}>
-                <button
-                  type="submit"
-                  name="vote"
-                  value={getVoteValue(
-                    evaluation.length,
-                    shouldShowDecimal,
-                    idx
-                  )}
-                  disabled={isVoting}
-                >
-                  <FaStar
-                    className="text-transparent hover:text-pink-200"
-                    strokeWidth="5"
-                    stroke="white"
-                    strokeOpacity={1}
-                  />
-                </button>
-              </li>
-            )
-          })}
-      </ul>
+      <div className="relative inline-flex">
+        {isVoting && votedRate && (
+          <>
+            <RatingFeedbackEmoji
+              animate={votedRate ? true : false}
+              yPosition={50}
+              xPosition="left"
+              emoji="🥰"
+            />
+
+            <RatingFeedbackEmoji
+              animate={votedRate ? true : false}
+              yPosition={60}
+              xPosition="center"
+              emoji="🙏"
+            />
+
+            <RatingFeedbackEmoji
+              animate={votedRate ? true : false}
+              yPosition={56}
+              xPosition="right"
+              emoji="🔥"
+            />
+
+            <Tooltip animate={votedRate ? true : false} votedRate={votedRate} />
+          </>
+        )}
+        <ul
+          aria-label={`Rating is ${ratingValue}`}
+          className={`flex gap-1 text-sm  ${starColor}`}
+          title={String(ratingValue)}
+        >
+          {evaluation.map((_, idx) => (
+            <li key={idx + 'rating'} className="cursor-pointer">
+              <button
+                type="submit"
+                name="vote"
+                value={idx + 1}
+                disabled={isVoting}
+              >
+                <FaStar />
+              </button>
+            </li>
+          ))}
+
+          {shouldShowDecimal ? (
+            <li key="decimal-rating">
+              <button
+                type="submit"
+                name="vote"
+                value={evaluation.length + 1}
+                disabled={isVoting}
+                style={{ position: 'relative' }}
+              >
+                <FaStar
+                  className={`text-transparent ${hoverStarColor} z-10 relative`}
+                  strokeWidth="5"
+                  stroke="white"
+                  strokeOpacity={1}
+                />
+                <FaStarHalf className="absolute top-0 left-0" />
+              </button>
+            </li>
+          ) : null}
+          {Array.isArray(remaining) &&
+            remaining.map((_, idx) => {
+              return (
+                <li key={idx + 'remaining'}>
+                  <button
+                    type="submit"
+                    name="vote"
+                    value={getVoteValue(
+                      evaluation.length,
+                      shouldShowDecimal,
+                      idx
+                    )}
+                    disabled={isVoting}
+                  >
+                    <FaStar
+                      className={`text-transparent ${hoverStarColor} z-10 relative`}
+                      strokeWidth="5"
+                      stroke="white"
+                      strokeOpacity={1}
+                    />
+                  </button>
+                </li>
+              )
+            })}
+        </ul>
+      </div>
     </form>
   )
 }
