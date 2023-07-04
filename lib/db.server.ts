@@ -71,7 +71,7 @@ export const getTotalTitles = async () => {
 }
 
 export const fetchDefaultTitles = async () => {
-  const { records: titleRecords } = await xata.db.titles
+  const { records: titles } = await xata.db.titles
     .filter({
       $exists: 'startYear',
       titleType: 'movie',
@@ -88,32 +88,6 @@ export const fetchDefaultTitles = async () => {
         size: 20,
       },
     })
-
-  const titles = await Promise.all(
-    titleRecords.map(async (title) => {
-      if (!title.coverUrl || !title.summary) {
-        const omdbResponse = await fetch(
-          `http://omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${title.id}`
-        )
-
-        const omdbData = OMDBschema.parse(await omdbResponse.json())
-
-        xata.db.titles.createOrUpdate({
-          id: title.id,
-          coverUrl: omdbData.Poster !== 'N/A' ? omdbData.Poster : undefined,
-          summary: omdbData.Plot,
-        })
-
-        return {
-          ...title,
-          coverUrl: omdbData.Poster,
-          summary: omdbData.Plot,
-        }
-      }
-
-      return title
-    })
-  )
 
   return {
     titles: movieList.parse(titles.filter(({ summary }) => summary !== 'N/A')),

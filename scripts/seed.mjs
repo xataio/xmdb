@@ -1,8 +1,7 @@
+// @ts-check
 import { faker } from '@faker-js/faker'
 import { buildClient } from '@xata.io/client'
 import dotenv from 'dotenv'
-import fs from 'node:fs/promises'
-import path from 'node:path'
 
 const MOVIE_GENRES = [
   'action',
@@ -17,15 +16,6 @@ dotenv.config({
   path: '.env.local',
 })
 
-async function getDatabaseURL() {
-  const file = await fs.readFile(
-    path.resolve(process.cwd(), '.xatarc'),
-    'utf-8'
-  )
-
-  return JSON.parse(file).databaseURL
-}
-
 class XataClient extends buildClient() {
   /**
    *
@@ -38,10 +28,8 @@ class XataClient extends buildClient() {
   }
 }
 
-const DATABASE_URL = await getDatabaseURL()
-
 const xata = new XataClient({
-  databaseURL: DATABASE_URL,
+  databaseURL: process.env.XATA_DATABASE_URL,
   apiKey: process.env.XATA_API_KEY,
   branch: process.env.XATA_BRANCH || 'main',
 })
@@ -55,18 +43,19 @@ function setMockData(rows = 100) {
 
   for (let i = 0; i < rows; i++) {
     const title = faker.music.songName()
+    const year = faker.date.past(10).getFullYear()
 
     titles.push({
       titleType: faker.helpers.arrayElement(['movie', 'short']),
       primaryTitle: title,
       originalTitle: title,
-      startYear: null,
-      endYear: +faker.date.past(10),
+      startYear: year,
+      endYear: year + 1,
       isAdult: faker.datatype.boolean(),
       runtimeMinutes: faker.datatype.number({ min: 30, max: 180 }),
       genres: faker.helpers.arrayElements(MOVIE_GENRES),
-      numVotes: faker.datatype.number({ min: 100, max: 10000 }),
-      averageRating: faker.datatype.float({ max: 10 }),
+      numVotes: faker.datatype.number({ min: 19000, max: 2000000 }),
+      averageRating: faker.datatype.number({ min: 6, max: 10 }),
       coverUrl: faker.image.imageUrl(),
       summary: faker.lorem.paragraph(),
     })
@@ -89,7 +78,7 @@ async function isDBpopulated() {
   return false
 }
 
-export async function setup() {
+export async function seed() {
   if (await isDBpopulated()) {
     console.warn('Database is not empty. Skip seeding...')
     return
@@ -98,9 +87,9 @@ export async function setup() {
   const data = setMockData()
 
   try {
-    const bulk = await xata.db.titles.create(data)
+    await xata.db.titles.create(data)
 
-    console.log(`🎉 ${bulk} records succesffully inserted!`)
+    console.log(`🎉 100 records succesffully inserted!`)
 
     return 'success'
   } catch (err) {
@@ -109,7 +98,9 @@ export async function setup() {
 }
 
 try {
-  setup()
+  console.log(`❯ Pushing sample data to: ${process.env.XATA_DATABASE_URL}`)
+
+  seed()
 } catch {
   console.warn('Seeding gone wrong.')
 }

@@ -2,6 +2,8 @@
   <img src="/public/xmdb-hero@2x.png" alt="Xata and XMDB logo" />
 </a>
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fxataio%2Fxmdb&integration-ids=oac_IDpMECDuYqBvAtu3wXXMQe0J&install-command=pnpm%20one-click)
+
 ## Features ⚡️
 
 - [Typo-Tolerant Full-Text Search](https://xata.io/docs/api-guide/search).
