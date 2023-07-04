@@ -24,7 +24,7 @@ export const Tooltip = ({
       variants={tooltipVariants}
       id="tooltip-light"
       role="tooltip"
-      className="absolute left-0 w-20 px-2 py-1 text-xs font-medium text-white text-pink-400 -translate-y-1/2 bg-pink-500 rounded-lg shadow-sm whitespace-nowrap"
+      className="absolute left-0 min-w-20 px-2 py-1 text-xs font-medium text-white -translate-y-1/2 bg-pink-500 rounded-lg shadow-sm whitespace-nowrap"
     >
       <p>You rated: {votedRate}</p>
     </motion.div>
