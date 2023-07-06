@@ -2,7 +2,6 @@ import 'server-only'
 import { getXataClient, TitlesRecord } from '~/lib/xata.codegen'
 import { gte, le } from '@xata.io/client'
 import { movie, movieList, OMDBschema } from './schemas'
-import { revalidatePath } from 'next/cache'
 
 const xata = getXataClient()
 
