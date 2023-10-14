@@ -16,6 +16,8 @@ dotenv.config({
   path: '.env.local',
 })
 
+dotenv.config() // Load the default .env file
+
 class XataClient extends buildClient() {
   /**
    *
