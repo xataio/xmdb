@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "xata:codegen": "pnpm -s dlx @xata.io/cli@latest codegen --output=lib/xata.codegen.ts",
-    "xata:seed": "node seed.mjs",
+    "xata:seed": "node scripts/seed.mjs",
     "xata:link": "pnpm -s dlx @xata.io/cli@latest init --schema=schema.json --codegen=lib/xata.codegen.ts",
     "one-click": "pnpm install && node scripts/one-click.mjs && node scripts/seed.mjs"
   },
