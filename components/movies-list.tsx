@@ -9,7 +9,7 @@ const MovieCard = ({ data }: { data: Titles }) => {
       <li className="flex w-full h-full max-w-sm mx-auto overflow-hidden transition duration-500 ease-in-out shadow-lg bg-slate-950 rounded-xl hover:-translate-y-2 hover:shadow-2xl relative text-white after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:via-slate-900 after:to-transparent focus-within:outline focus-within:outline-pink-600">
         <div className="relative z-10 px-6 pb-10 group">
           <header className="flex flex-col inner pb-6">
-            <h2 className="text-2xl min-h-[4rem] font-bold text-white flex flex-col justify-center pt-40">
+            <h2 className="text-2xl min-h-[4rem] font-bold text-white flex flex-col justify-center pt-40 pb-4">
               {primaryTitle}
             </h2>
 
