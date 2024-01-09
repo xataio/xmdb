@@ -91,7 +91,7 @@ export async function seed() {
   try {
     await xata.db.titles.create(data)
 
-    console.log(`🎉 100 records succesffully inserted!`)
+    console.log(`🎉 100 records successfully inserted!`)
 
     return 'success'
   } catch (err) {

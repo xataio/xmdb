@@ -22,5 +22,5 @@ try {
     }
   )
 } catch {
-  console.warn('Seeding gone wrong.')
+  console.warn('Setup gone wrong.')
 }
