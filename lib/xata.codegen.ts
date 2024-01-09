@@ -39,7 +39,7 @@ export type DatabaseSchema = {
 const DatabaseClient = buildClient();
 
 const defaultOptions = {
-  databaseURL: "https://demo-uni3q8.eu-central-1.xata.sh/db/xmdb2",
+  databaseURL: "https://sample-databases-v0sn1n.eu-west-1.xata.sh/db/imdb",
 };
 
 export class XataClient extends DatabaseClient<DatabaseSchema> {
