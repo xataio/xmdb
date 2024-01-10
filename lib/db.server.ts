@@ -94,7 +94,7 @@ export const fetchDefaultTitles = async () => {
 }
 
 export const searchMovies = async (term: string) => {
-  const results = await xata.db.titles.search(term, {
+  const { records } = await xata.db.titles.search(term, {
     fuzziness: term.length > 8 ? 2 : 0,
     prefix: 'phrase',
 
@@ -120,7 +120,7 @@ export const searchMovies = async (term: string) => {
 
   return {
     titles: movieList.parse(
-      results.filter(({ summary }) => summary && summary !== 'N/A')
+      records.filter(({ summary }) => summary && summary !== 'N/A')
     ),
   }
 }

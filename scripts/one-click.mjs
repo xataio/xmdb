@@ -10,7 +10,7 @@ try {
   console.log(`❯ Link and Setup database at ${process.env.XATA_DATABASE_URL}`)
 
   exec(
-    `pnpm -s dlx @xata.io/cli@latest init --schema=schema.json --codegen=lib/xata.codegen.ts --db=${process.env.XATA_DATABASE_URL} --yes`,
+    `pnpm -s dlx @xata.io/cli@latest init --schema=schema.json --codegen=lib/xata.codegen.ts --db=${process.env.XATA_DATABASE_URL} --yes --force`,
     (_error, stdout, stderr) => {
       console.log('❯ Running pnpm dlx')
 
@@ -22,5 +22,5 @@ try {
     }
   )
 } catch {
-  console.warn('Seeding gone wrong.')
+  console.warn('Setup gone wrong.')
 }
