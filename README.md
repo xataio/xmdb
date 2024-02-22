@@ -7,7 +7,7 @@
 ## Features ⚡️
 
 - [Typo-Tolerant Full-Text Search](https://xata.io/docs/api-guide/search).
-- [Aggregations](https://xata.io/docs/api-guide/aggregate).
+- [Aggregations](https://xata.io/docs/sdk/aggregate).
 - [Type-Safe SDK/ORM](https://github.com/xataio/client-ts/blob/main/packages/client/README.md) (schema-based types generation).
 - Next.js App Directory with React Server Components.
 - Intercepting Route
